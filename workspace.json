@@ -8,9 +8,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/next:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "root": "apps/blitz-app",
             "outputPath": "dist/apps/blitz-app"
@@ -20,16 +18,10 @@
           }
         },
         "serve": {
-          "executor": "@nrwl/next:server",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "buildTarget": "blitz-app:build",
-            "dev": true
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "blitz-app:build:production",
-              "dev": false
-            }
+            "command": "yarn blitz start",
+            "cwd": "apps/blitz-app"
           }
         },
         "export": {
@@ -41,16 +33,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/blitz-app/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/blitz-app/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/blitz-app"
-          ],
+          "outputs": ["coverage/apps/blitz-app"],
           "options": {
             "jestConfig": "apps/blitz-app/jest.config.js",
             "passWithNoTests": true
@@ -79,9 +67,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/blitz-app-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/blitz-app-e2e/**/*.{js,ts}"]
           }
         }
       }
