@@ -1,3 +1,9 @@
+# Blitz NX Issue
+
+This repo is created to demonstrate the issue reported [here](https://github.com/blitz-js/blitz/issues/1660)
+
+---
+
 # MyOrg
 
 This project was generated using [Nx](https://nx.dev).
